@@ -24,8 +24,8 @@
 
 ## Exercise 1.3
 (define (sum-of-larger-squares a b c)
-  (cond (and (> a c) (> b c) (+ (* a a) (* b b)))
-        (and (> a b) (> c b) (+ (* a a) (* c c)))
+  (cond ((and (> a c) (> b c)) (+ (* a a) (* b b)))
+        ((and (> a b) (> c b)) (+ (* a a) (* c c)))
         (else (+ (* b b) (* c c)))))
 
 ## Exercise 1.4
@@ -206,3 +206,11 @@ states of the process
     2. g(n) = 2 ^ n
     3. h(n) = 2 ^ (2 ^ n)
     4. k(n) = 5 * n ^ 2
+
+## Exercise 1.11
+* [Recursive process](./ex01_11a.scm)
+* [iterative process](./ex01_11b.scm)
+
+## [Exercise 1.12](./ex01_12.scm)
+
+## [Exercise 1.13](http://www.billthelizard.com/2009/12/sicp-exercise-113-fibonacci-and-golden.html)
