@@ -108,53 +108,43 @@ Process A:
 ```scheme
 (+ 4 5)
 (if (= 4 0) 5 (inc (+ (dec 4) 5)))
-(if (= 4 0) 5 (inc (+ 3 5)))
-(if (= 4 0) 5 (inc
-               (if (= 3 0) 5 (inc (+ (dec 3) 5)))))
-(if (= 4 0) 5 (inc
-               (if (= 3 0) 5 (inc (+ 2 5)))))
-(if (= 4 0) 5 (inc
-               (if (= 3 0) 5 (inc
-                              (if (= 2 0) 5 (inc (+ (dec 2) 5)))))))
-(if (= 4 0) 5 (inc
-               (if (= 3 0) 5 (inc
-                              (if (= 2 0) 5 (inc (+ 1 5)))))))
-(if (= 4 0) 5 (inc
-               (if (= 3 0) 5 (inc
-                              (if (= 2 0) 5 (inc
-                                             (if (= 1 0) 5 (inc (+ (dec 1) 5)))))))))
-(if (= 4 0) 5 (inc
-               (if (= 3 0) 5 (inc
-                              (if (= 2 0) 5 (inc
-                                             (if (= 1 0) 5 (inc (+ 0 5)))))))))
-(if (= 4 0) 5 (inc
-               (if (= 3 0) 5 (inc
-                              (if (= 2 0) 5 (inc
-                                             (if (= 1 0) 5 (inc
-                                                            (if (= 0 0) 5 (inc (+ (dec 0) 5)))))))))))
-(if (= 4 0) 5 (inc
-               (if (= 3 0) 5 (inc
-                              (if (= 2 0) 5 (inc
-                                             (if (= 1 0) 5 (inc
-                                                            (if #t 5 (inc (+ (dec 0) 5)))))))))))
-(if (= 4 0) 5 (inc
-               (if (= 3 0) 5 (inc
-                              (if (= 2 0) 5 (inc
-                                             (if (= 1 0) 5 (inc 5))))))))
-(if (= 4 0) 5 (inc
-               (if (= 3 0) 5 (inc
-                              (if (= 2 0) 5 (inc
-                                             (if #f 5 6)))))))
-(if (= 4 0) 5 (inc
-               (if (= 3 0) 5 (inc
-                              (if (= 2 0) 5 (inc 6))))))
-(if (= 4 0) 5 (inc
-               (if (= 3 0) 5 (inc
-                              (if #f 5 7)))))
-(if (= 4 0) 5 (inc
-               (if (= 3 0) 5 (inc 7))))
-(if (= 4 0) 5 (inc
-               (if #f 5 8)))
+(if (= 4 0)
+    5 (inc (+ 3 5)))
+(if (= 4 0)
+    5 (inc (if (= 3 0) 5 (inc (+ (dec 3) 5)))))
+(if (= 4 0)
+    5 (inc (if (= 3 0) 5 (inc (+ 2 5)))))
+(if (= 4 0)
+    5 (inc (if (= 3 0) 5 (inc (if (= 2 0) 5 (inc (+ (dec 2) 5)))))))
+(if (= 4 0)
+    5 (inc (if (= 3 0) 5 (inc (if (= 2 0) 5 (inc (+ 1 5)))))))
+(if (= 4 0)
+    5 (inc (if (= 3 0)
+               5 (inc (if (= 2 0)
+                          5 (inc (if (= 1 0) 5 (inc (+ (dec 1) 5)))))))))
+(if (= 4 0)
+    5 (inc (if (= 3 0)
+               5 (inc (if (= 2 0) 5 (inc (if (= 1 0) 5 (inc (+ 0 5)))))))))
+(if (= 4 0)
+    5 (inc (if (= 3 0)
+               5 (inc (if (= 2 0)
+                          5 (inc (if (= 1 0)
+                                     5 (inc (if (= 0 0)
+                                                5 (inc (+ (dec 0) 5)))))))))))
+(if (= 4 0)
+    5 (inc (if (= 3 0)
+               5 (inc (if (= 2 0)
+                          5 (inc (if (= 1 0)
+                                     5 (inc (if #t 5 (inc (+ (dec 0) 5)))))))))))
+(if (= 4 0)
+    5 (inc (if (= 3 0)
+               5 (inc (if (= 2 0)
+                          5 (inc (if (= 1 0) 5 (inc 5))))))))
+(if (= 4 0) 5 (inc (if (= 3 0) 5 (inc (if (= 2 0) 5 (inc (if #f 5 6)))))))
+(if (= 4 0) 5 (inc (if (= 3 0) 5 (inc (if (= 2 0) 5 (inc 6))))))
+(if (= 4 0) 5 (inc (if (= 3 0) 5 (inc (if #f 5 7)))))
+(if (= 4 0) 5 (inc (if (= 3 0) 5 (inc 7))))
+(if (= 4 0) 5 (inc (if #f 5 8)))
 (if (= 4 0) 5 (inc 8))
 (if #f 5 9)
 9
@@ -166,20 +156,13 @@ Process B:
 (+ 4 5)
 (if (= 4 0) 5 (+ (dec 4) (inc 5)))
 (if (= 4 0) 5 (+ 3 6))
-(if (= 4 0) 5 (if (= 3 0) 6
-                  (+ (dec 3) (inc 6))))
-(if (= 4 0) 5 (if (= 3 0) 6
-                  (+ 2 7)))
-(if (= 4 0) 5 (if (= 3 0) 6
-                  (if (= 2 0) 7 (+ (dec 2) (inc 7)))))
-(if (= 4 0) 5 (if (= 3 0) 6
-                  (if (= 2 0) 7 (+ 1 8))))
-(if (= 4 0) 5 (if (= 3 0) 6
-                  (if (= 2 0) 8 (+ (dec 1) (inc 8)))))
-(if (= 4 0) 5 (if (= 3 0) 6
-                  (if (= 2 0) 8 (+ 0 9))))
-(if (= 4 0) 5 (if (= 3 0) 6
-                  (if #f 8 9)))
+(if (= 4 0) 5 (if (= 3 0) 6 (+ (dec 3) (inc 6))))
+(if (= 4 0) 5 (if (= 3 0) 6 (+ 2 7)))
+(if (= 4 0) 5 (if (= 3 0) 6 (if (= 2 0) 7 (+ (dec 2) (inc 7)))))
+(if (= 4 0) 5 (if (= 3 0) 6 (if (= 2 0) 7 (+ 1 8))))
+(if (= 4 0) 5 (if (= 3 0) 6 (if (= 2 0) 8 (+ (dec 1) (inc 8)))))
+(if (= 4 0) 5 (if (= 3 0) 6 (if (= 2 0) 8 (+ 0 9))))
+(if (= 4 0) 5 (if (= 3 0) 6 (if #f 8 9)))
 (if (= 4 0) 5 (if (= 3 0) 6 9))
 (if (= 4 0) 5 (if #f 6 9))
 (if (= 4 0) 5 9)
@@ -215,11 +198,11 @@ states of the process
 > Give Consice mathematical definition for the functions computed by the procedure *f*, *g*, and *h* for positive integer values of n. For example, (k n) computes *5n^2*
 
 1. 
-1. 1024
-2. 65536
-3. 65536
+    1. 1024
+    2. 65536
+    3. 65536
 2. 
-1. f(n) = 2 * n
-2. g(n) = 2 ^ n
-3. h(n) = 2 ^ (2 ^ n)
-4. k(n) = 5 * n ^ 2
+    1. f(n) = 2 * n
+    2. g(n) = 2 ^ n
+    3. h(n) = 2 ^ (2 ^ n)
+    4. k(n) = 5 * n ^ 2
