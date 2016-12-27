@@ -86,9 +86,9 @@ and the second argument will be expand first in applicative-order interpreter, s
 > The *good-enough?* test used in computing square roots will not be very effective for finding the square roots of very small numbers. Also, in real computers, arithmetic operations are almost always performed with limited precision. This makes our test inadequate for very large numbers. Explain these statements, with exmaples showing how the test fails for small and large numbers. An alternative strategy for implementing *good-enough?* is to watch how *guess* changes from one iteration to the next and to stop when the change is a very small fraction of the guess. Design a square-root procedure that uses this kind of end test. Does this work better for small and large numbers?
 
 When evaluate `(sqrt 0.000001)`, the interpreter generates 3.1260655525445276e-2 which is greatly different from the real answer. When evaluate `(sqrt 10000000000000)`, the interpreter never stops because *good-enough* will never become true due to float number representation in computers. 
-[New Implementation](https://github.com/wallyyang/sicp-exercise-solutions/blob/master/chapter01/ex01_07.scm)
+[New Implementation](./ex01_07.scm)
 
-## [Exercise 1.8](http://github.com/wallyyang/sicp-exercise-solutions/blob/master/chapter01/ex01_08.scm)
+## [Exercise 1.8](./ex01_08.scm)
 
 ## Exercise 1.9
 > Each of the following two procedures defines
